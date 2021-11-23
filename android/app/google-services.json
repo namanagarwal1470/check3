@@ -1,0 +1,76 @@
+{
+  "project_info": {
+    "project_number": "1060674775079",
+    "project_id": "region-infinity-50950",
+    "storage_bucket": "region-infinity-50950.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1060674775079:android:e31802a7e433ea62368602",
+        "android_client_info": {
+          "package_name": "com.example.check1"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1060674775079-c8dq28ldq93u9gc6dmjinflkpubgqaj5.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.check1",
+            "certificate_hash": "a202a3486941baa8df42d3f043d5adb74d29d702"
+          }
+        },
+        {
+          "client_id": "1060674775079-2gcoaqbnt05ut8uald696ff5uno2daii.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDOtWcawev5NKgdkHhdC-9tNSvKg20s22s"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1060674775079-2gcoaqbnt05ut8uald696ff5uno2daii.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1060674775079:android:d5721d38d71b10f0368602",
+        "android_client_info": {
+          "package_name": "com.region.infinity"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1060674775079-2gcoaqbnt05ut8uald696ff5uno2daii.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDOtWcawev5NKgdkHhdC-9tNSvKg20s22s"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1060674775079-2gcoaqbnt05ut8uald696ff5uno2daii.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
