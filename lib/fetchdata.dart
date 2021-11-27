@@ -1,21 +1,19 @@
-import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:flutter_tex/flutter_tex.dart';
+import 'package:flutter/material.dart';
 
 
 FirebaseFirestore firestore = FirebaseFirestore.instance;
 
-
-
 class GetUserName extends StatelessWidget {
-
+  
 
   @override
   Widget build(BuildContext context) {
-    CollectionReference users = FirebaseFirestore.instance.collection('Mathematics Questions');
+    CollectionReference users = FirebaseFirestore.instance.collection('MAATH');
+
 
     return FutureBuilder<DocumentSnapshot>(
-      future: users.doc("04Hb7EoTbuCHbw2NFBeB").get(),
+      future: users.doc('HELLO').get(),
       builder:
           (BuildContext context, AsyncSnapshot<DocumentSnapshot> snapshot) {
 
@@ -28,29 +26,11 @@ class GetUserName extends StatelessWidget {
         }
 
         if (snapshot.connectionState == ConnectionState.done) {
-          Map<String, dynamic> data = snapshot.data!.data() as Map<
-              String,
-              dynamic>;
-          return Scaffold(
-            backgroundColor: Colors.white,
-            body: TeXView(child: TeXViewColumn(children: [
-
-              TeXViewDocument('Q1).'+ data["question_description"],
-                style: TeXViewStyle(textAlign: TeXViewTextAlign.Center,contentColor: Colors.black,margin: TeXViewMargin.only(top: 100))),
-
-              TeXViewDocument("A). "+data["options"]["option1"],
-                  style: TeXViewStyle(textAlign: TeXViewTextAlign.Left,margin: TeXViewMargin.only(left:40,top:40))),
-              TeXViewDocument("B). "+data["options"]["option2"],
-                  style: TeXViewStyle(textAlign: TeXViewTextAlign.Left,margin: TeXViewMargin.only(left:40,top:40))),
-              TeXViewDocument("C). "+data["options"]["option3"],
-                  style: TeXViewStyle(textAlign: TeXViewTextAlign.Left,margin: TeXViewMargin.only(left:40,top:40))),
-              TeXViewDocument("D). "+data["options"]["option4"],
-                  style: TeXViewStyle(textAlign: TeXViewTextAlign.Left,margin: TeXViewMargin.only(left:40,top:40)))
-
-            ]) ),
-          );
+          Map<String, dynamic> data = snapshot.data!.data() as Map<String, dynamic>;
+          return Text("Full Name: ${data['KEY']} ");
         }
-        return Center(child:CircularProgressIndicator());
+
+        return Text("loading");
       },
     );
   }

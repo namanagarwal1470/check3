@@ -1,27 +1,33 @@
-import 'package:check1/fetchdata.dart';
-import 'package:flutter/material.dart';
+
+import "package:flutter/material.dart";
+import 'package:flutter/services.dart';
 import 'package:firebase_core/firebase_core.dart';
-import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:flutter_tex/flutter_tex.dart';
-import 'fetchdata.dart';
+import 'logoutpage.dart';
+import 'loginscreen.dart';
+import 'start1.dart';
+import 'splashscreen.dart';
+import 'dashboard.dart';
+import 'start3.dart';
+import 'ques.dart';
+import 'topics.dart';
+import 'profile.dart';
+import 'hint.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
-  runApp(const MyApp());
+  runApp(myapp());
 }
 
-class MyApp extends StatelessWidget {
-  const MyApp({Key? key}) : super(key: key);
+class myapp extends StatelessWidget {
+  const myapp({Key? key}) : super(key: key);
 
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: GetUserName(),
+      debugShowCheckedModeBanner: false,
+      home: splash()
     );
   }
 }
-
-
-
