@@ -39,8 +39,6 @@ dependencies:
   pinput: ^0.2.6
   flutter_tex: ^4.0.3
   cloud_firestore: "^0.16.0"
-  font_awesome_flutter: ^9.2.0
-  shared_preferences: ^2.0.9
 
 dev_dependencies:
   flutter_test:

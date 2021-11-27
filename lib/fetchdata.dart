@@ -16,7 +16,6 @@ class GetUserName extends StatelessWidget {
       future: users.doc('HELLO').get(),
       builder:
           (BuildContext context, AsyncSnapshot<DocumentSnapshot> snapshot) {
-
         if (snapshot.hasError) {
           return Text("Something went wrong");
         }
