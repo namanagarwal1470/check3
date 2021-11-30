@@ -3,20 +3,14 @@ import 'ques.dart';
 import 'topics.dart';
 import 'profile.dart';
 
-
 class dashboard extends StatefulWidget {
-  String text='';
+  final String text = '';
   dashboard(String text);
   @override
   _dashboardState createState() => _dashboardState();
 }
 
-
 class _dashboardState extends State<dashboard> {
-
-
-
-
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -33,12 +27,12 @@ class _dashboardState extends State<dashboard> {
                     ),
                     child: Center(
                         child: Text(
-                          'Region Infinity',
-                          style: TextStyle(
-                              color: Colors.white,
-                              fontSize: 25,
-                              fontWeight: FontWeight.bold),
-                        )),
+                      'Region Infinity',
+                      style: TextStyle(
+                          color: Colors.white,
+                          fontSize: 25,
+                          fontWeight: FontWeight.bold),
+                    )),
                   ),
                   ListTile(
                     title: const Text(
@@ -81,7 +75,7 @@ class _dashboardState extends State<dashboard> {
             ),
             appBar: AppBar(
               elevation: 0,
-              title:  Row(
+              title: Row(
                 children: [
                   Text("Hi,  Champion",
                       style: TextStyle(
@@ -144,7 +138,7 @@ class _dashboardState extends State<dashboard> {
                               SizedBox(width: 15),
                               Container(
                                   width:
-                                  (MediaQuery.of(context).size.width) * 0.7,
+                                      (MediaQuery.of(context).size.width) * 0.7,
                                   height: 30,
                                   child: Center(
                                     child: TextField(
@@ -152,7 +146,7 @@ class _dashboardState extends State<dashboard> {
                                       keyboardType: TextInputType.text,
                                       decoration: InputDecoration(
                                           contentPadding:
-                                          EdgeInsets.only(bottom: 15),
+                                              EdgeInsets.only(bottom: 15),
                                           border: InputBorder.none,
                                           hintText: "Search for Topics"),
                                     ),
@@ -174,14 +168,14 @@ class _dashboardState extends State<dashboard> {
                                 Container(
                                     margin: EdgeInsets.only(
                                         top: (MediaQuery.of(context)
-                                            .size
-                                            .height) *
+                                                .size
+                                                .height) *
                                             0.4 *
                                             0.6 *
                                             0.2,
                                         left: (MediaQuery.of(context)
-                                            .size
-                                            .width) *
+                                                .size
+                                                .width) *
                                             0.9 *
                                             0.1 *
                                             0.6),
@@ -193,15 +187,15 @@ class _dashboardState extends State<dashboard> {
                                 Container(
                                     margin: EdgeInsets.only(
                                         top: (MediaQuery.of(context)
-                                            .size
-                                            .height) *
+                                                .size
+                                                .height) *
                                             0.4 *
                                             0.6 *
                                             0.2 *
                                             0.1,
                                         left: (MediaQuery.of(context)
-                                            .size
-                                            .width) *
+                                                .size
+                                                .width) *
                                             0.9 *
                                             0.1 *
                                             0.6),
@@ -211,7 +205,7 @@ class _dashboardState extends State<dashboard> {
                                             fontWeight: FontWeight.bold,
                                             fontSize: 20))),
                                 GestureDetector(
-                                  onTap: () {
+                                    onTap: () {
                                       Navigator.push(
                                           context,
                                           MaterialPageRoute(
@@ -222,26 +216,34 @@ class _dashboardState extends State<dashboard> {
                                         child: Text(
                                           "Start Learning",
                                           style: TextStyle(
-                                              color: Colors.white, fontSize: 15),
+                                              color: Colors.white,
+                                              fontSize: 15),
                                         ),
                                       ),
                                       decoration: BoxDecoration(
-                                          borderRadius: BorderRadius.circular(15),
+                                          borderRadius:
+                                              BorderRadius.circular(15),
                                           color: Colors.yellow),
                                       width: 150,
-                                      height: (MediaQuery.of(context).size.height) *
-                                          0.4 *
-                                          0.2 *
-                                          0.5,
+                                      height:
+                                          (MediaQuery.of(context).size.height) *
+                                              0.4 *
+                                              0.2 *
+                                              0.5,
                                       margin: EdgeInsets.only(
-                                        top: (MediaQuery.of(context).size.height) *
+                                        top: (MediaQuery.of(context)
+                                                .size
+                                                .height) *
                                             0.05,
-                                        left: (MediaQuery.of(context).size.width) *
+                                        left: (MediaQuery.of(context)
+                                                .size
+                                                .width) *
                                             0.9 *
                                             0.1 *
                                             0.6,
-                                        bottom:
-                                        (MediaQuery.of(context).size.height) *
+                                        bottom: (MediaQuery.of(context)
+                                                .size
+                                                .height) *
                                             0.4 *
                                             0.6 *
                                             0.2 *
@@ -252,21 +254,22 @@ class _dashboardState extends State<dashboard> {
                             )),
                       ]),
                 ),
-                SizedBox(height:50),
+                SizedBox(height: 50),
                 Row(
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
-                    SizedBox(width:30),
+                    SizedBox(width: 30),
                     GestureDetector(
-                      onTap: (){
-                        print("hello");},
+                      onTap: () {
+                        print("hello");
+                      },
                       child: Container(
                         height: 20,
                         color: Colors.white,
-
                         child: Text(
                           "Recent Searches",
-                          style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
+                          style: TextStyle(
+                              fontWeight: FontWeight.bold, fontSize: 20),
                         ),
                       ),
                     ),
@@ -275,30 +278,30 @@ class _dashboardState extends State<dashboard> {
                 SizedBox(height: 20),
                 Expanded(
                     child: SingleChildScrollView(
-                      child: Column(
-                        children: [
-                          cont("75%", "Coordinate Geometry \n Class - 12"),
-                          SizedBox(height: 10),
-                          cont("25%", "Relations & Functions\n Class - 12"),
-                          SizedBox(height: 10),
-                          cont("100%", "Algebra \n Class - 12"),
-                          SizedBox(height: 10),
-                          cont("50%", "Matrix Calculation \n Class - 12"),
-                          SizedBox(height: 10),
-                          cont("75%", "Trees & Graphs \n Class-12"),
-                          SizedBox(height: 10),
-                          cont("75%", "Coordinate Geometry \n Class - 12"),
-                          SizedBox(height: 10),
-                          cont("25%", "Relations & Functions\n Class - 12"),
-                          SizedBox(height: 10),
-                          cont("100%", "Algebra \n Class - 12"),
-                          SizedBox(height: 10),
-                          cont("50%", "Matrix Calculation \n Class - 12"),
-                          SizedBox(height: 10),
-                          cont("75%", "Trees & Graphs \n Class-12")
-                        ],
-                      ),
-                    ))
+                  child: Column(
+                    children: [
+                      cont("75%", "Coordinate Geometry \n Class - 12"),
+                      SizedBox(height: 10),
+                      cont("25%", "Relations & Functions\n Class - 12"),
+                      SizedBox(height: 10),
+                      cont("100%", "Algebra \n Class - 12"),
+                      SizedBox(height: 10),
+                      cont("50%", "Matrix Calculation \n Class - 12"),
+                      SizedBox(height: 10),
+                      cont("75%", "Trees & Graphs \n Class-12"),
+                      SizedBox(height: 10),
+                      cont("75%", "Coordinate Geometry \n Class - 12"),
+                      SizedBox(height: 10),
+                      cont("25%", "Relations & Functions\n Class - 12"),
+                      SizedBox(height: 10),
+                      cont("100%", "Algebra \n Class - 12"),
+                      SizedBox(height: 10),
+                      cont("50%", "Matrix Calculation \n Class - 12"),
+                      SizedBox(height: 10),
+                      cont("75%", "Trees & Graphs \n Class-12")
+                    ],
+                  ),
+                ))
               ],
             )));
   }
@@ -317,7 +320,7 @@ class _dashboardState extends State<dashboard> {
               height: 40,
               width: 40,
               decoration:
-              BoxDecoration(shape: BoxShape.circle, color: Colors.white),
+                  BoxDecoration(shape: BoxShape.circle, color: Colors.white),
               child: Center(
                 child: Container(
                   height: 30,
@@ -329,14 +332,14 @@ class _dashboardState extends State<dashboard> {
                     ),
                   ),
                   decoration:
-                  BoxDecoration(color: Colors.red, shape: BoxShape.circle),
+                      BoxDecoration(color: Colors.red, shape: BoxShape.circle),
                 ),
               ),
             ),
             SizedBox(width: 20),
             Container(
               height: 45,
-              width: (MediaQuery.of(context).size.width) * 0.6*0.9,
+              width: (MediaQuery.of(context).size.width) * 0.6 * 0.9,
               color: Colors.red,
               child: Text(
                 text2,

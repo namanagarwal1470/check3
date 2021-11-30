@@ -1,3 +1,4 @@
+import 'package:check1/topicsPage.dart';
 import 'package:flutter/material.dart';
 import 'ques.dart';
 
@@ -61,8 +62,8 @@ class _topicsState extends State<topics> {
             ),
             GestureDetector(
               onTap: () {
-                Navigator.push(
-                    context, MaterialPageRoute(builder: (context) => ques()));
+                Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => TopicsPage()));
               },
               child: Container(
                   width: double.infinity,

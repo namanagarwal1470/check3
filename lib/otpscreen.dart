@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'logoutpage.dart';
 import 'ques.dart';
 import 'dashboard.dart';
-import 'package:shared_preferences/shared_preferences.dart';
+// import 'package:shared_preferences/shared_preferences.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 
 class OtpPage extends StatefulWidget {
@@ -15,28 +15,25 @@ class OtpPage extends StatefulWidget {
 }
 
 class _OtpPageState extends State<OtpPage> {
-   fetch_data()async{
-    CollectionReference mobileinfo = await FirebaseFirestore.instance.collection('mobileno');
+  fetch_data() async {
+    CollectionReference mobileinfo =
+        await FirebaseFirestore.instance.collection('mobileno');
 
-    List<DocumentSnapshot>  mobileinfodocs = (await mobileinfo.get()).docs;
+    List<DocumentSnapshot> mobileinfodocs = (await mobileinfo.get()).docs;
 
-
-    for (var u in mobileinfodocs){
-      if(u["mobile"]=="${widget.phone}"){
+    for (var u in mobileinfodocs) {
+      if (u["mobile"] == "${widget.phone}") {
         setState(() {
-          m=true;
+          m = true;
         });
-
       }
     }
-
-
-
   }
+
   final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
   String? _verificationID;
-  int counter=0;
-  bool m=false;
+  int counter = 0;
+  bool m = false;
   final TextEditingController _pinPutController = TextEditingController();
   @override
   Widget build(BuildContext context) {
@@ -45,11 +42,12 @@ class _OtpPageState extends State<OtpPage> {
         body: ListView(
           children: [
             Container(
-              height: (MediaQuery.of(context).size.height)*0.6,
+              height: (MediaQuery.of(context).size.height) * 0.6,
               width: double.infinity,
               decoration: BoxDecoration(
                   color: Colors.red,
-                  borderRadius: BorderRadius.vertical(bottom: Radius.circular(50))),
+                  borderRadius:
+                      BorderRadius.vertical(bottom: Radius.circular(50))),
               child: ListView(
                 children: [
                   SizedBox(height: 130),
@@ -98,22 +96,24 @@ class _OtpPageState extends State<OtpPage> {
                       await FirebaseAuth.instance
                           .signInWithCredential(
                         PhoneAuthProvider.credential(
-                            verificationId: _verificationID,
+                            verificationId: _verificationID.toString(),
                             smsCode: _pinPutController.text),
                       )
                           .then((value) async {
                         if (value.user != null) {
-                          if (m==false){
-
-                          Navigator.pushAndRemoveUntil(
-                              context,
-                              MaterialPageRoute(builder: (context) => logoutpage(widget.phone)),
-                              (route) => false);}
-                          else{
+                          if (m == false) {
                             Navigator.pushAndRemoveUntil(
                                 context,
-                                MaterialPageRoute(builder: (context) => dashboard("hello")),
-                                    (route) => false);
+                                MaterialPageRoute(
+                                    builder: (context) =>
+                                        logoutpage(widget.phone)),
+                                (route) => false);
+                          } else {
+                            Navigator.pushAndRemoveUntil(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => dashboard("hello")),
+                                (route) => false);
                           }
                         }
                       });
@@ -151,23 +151,22 @@ class _OtpPageState extends State<OtpPage> {
   _verifyPhone() async {
     await FirebaseAuth.instance.verifyPhoneNumber(
         phoneNumber: '+91${widget.phone}',
-
         verificationCompleted: (PhoneAuthCredential authCredential) async {
           await FirebaseAuth.instance
               .signInWithCredential(authCredential)
               .then((value) async {
             if (value.user != null) {
-              if (m==false){
-
+              if (m == false) {
                 Navigator.pushAndRemoveUntil(
                     context,
-                    MaterialPageRoute(builder: (context) => logoutpage(widget.phone)),
-                        (route) => false);}
-              else{
+                    MaterialPageRoute(
+                        builder: (context) => logoutpage(widget.phone)),
+                    (route) => false);
+              } else {
                 Navigator.pushAndRemoveUntil(
                     context,
                     MaterialPageRoute(builder: (context) => dashboard("hello")),
-                        (route) => false);
+                    (route) => false);
               }
             }
           });
@@ -175,7 +174,7 @@ class _OtpPageState extends State<OtpPage> {
         verificationFailed: (FirebaseAuthException e) {
           print(e.message);
         },
-        codeSent: (String verID, int forceCodeResend) {
+        codeSent: (String verID, int? forceCodeResend) {
           setState(() {
             _verificationID = verID;
           });
@@ -185,12 +184,8 @@ class _OtpPageState extends State<OtpPage> {
             _verificationID = verID;
           });
         },
-
         timeout: Duration(seconds: 10));
-
-
   }
-
 
   @override
   void initState() {
